@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "248662672896",
+    "firebase_url": "https://befriend-5e5ed-default-rtdb.firebaseio.com",
+    "project_id": "befriend-5e5ed",
+    "storage_bucket": "befriend-5e5ed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:248662672896:android:4e54aa0445e3d8f075bae5",
+        "android_client_info": {
+          "package_name": "com.example.befriend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "248662672896-ojp5p9hk99tp31fapmkb5o4lge08r63t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.befriend",
+            "certificate_hash": "3d0c6e5ac3abed13ee6e7f2d7acffb33d8ef7067"
+          }
+        },
+        {
+          "client_id": "248662672896-i55u9hdb0ip3ljs50amo7ob708totnsc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDB4zlst2MtS14lGgn04fG7ro5eYfvGWto"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "248662672896-i55u9hdb0ip3ljs50amo7ob708totnsc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
