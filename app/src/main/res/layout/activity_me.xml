@@ -17,22 +17,158 @@
 
             ></include>
 
-        <FrameLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/me_setting_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/me_tool_bar"
-            android:layout_marginTop="0dp">
+            android:layout_marginTop="1dp">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/setting_list"
-                android:layout_width="391dp"
-                android:layout_height="636dp" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/me_profile_image"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/profile"
+                app:layout_constraintBottom_toTopOf="@+id/me_userName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.525" />
+
+            <TextView
+                android:id="@+id/me_userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/me_profile_image"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:text="UserName"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.319" />
+
+            <ImageButton
+                android:id="@+id/home_button"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:background="@android:color/transparent"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/story_button"
+                app:layout_constraintHorizontal_bias="0.446"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.948"
+                app:srcCompat="@drawable/home" />
+
+            <TextView
+                android:id="@+id/home_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="发布"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/story_textView"
+                app:layout_constraintHorizontal_bias="0.47"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/home_button"
+                app:layout_constraintVertical_bias="0.529" />
+
+            <ImageButton
+                android:id="@+id/story_button"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@android:color/transparent"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/message_button"
+                app:layout_constraintHorizontal_bias="0.697"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.95"
+                app:srcCompat="@drawable/story" />
+
+            <TextView
+                android:id="@+id/story_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="同城小事"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/message_textView"
+                app:layout_constraintHorizontal_bias="0.727"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/story_button"
+                app:layout_constraintVertical_bias="0.437" />
+
+            <ImageButton
+                android:id="@+id/message_button"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@android:color/transparent"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/me_button"
+                app:layout_constraintHorizontal_bias="0.796"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.948"
+                app:srcCompat="@drawable/message" />
+
+            <TextView
+                android:id="@+id/message_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="消息"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/me_textView"
+                app:layout_constraintHorizontal_bias="0.76"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/message_button"
+                app:layout_constraintVertical_bias="0.47" />
+
+            <ImageButton
+                android:id="@+id/me_button"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@android:color/transparent"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.905"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.948"
+                app:srcCompat="@drawable/me" />
+
+            <TextView
+                android:id="@+id/me_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.887"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/me_button"
+                app:layout_constraintVertical_bias="0.468" />
 
 
-        </FrameLayout>
-
-
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </RelativeLayout>
@@ -44,6 +180,7 @@
         android:layout_gravity="start"
         android:layout_marginBottom="3dp"
         app:menu="@menu/navigation_setting_menu" />
+
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

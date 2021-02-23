@@ -1,113 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:layout_gravity="bottom">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/home_button"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@android:color/transparent"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/home" />
+    <include
+        android:id="@+id/carpool_tool_bar"
+        layout="@layout/app_bar_layout"></include>
 
-        <TextView
-            android:id="@+id/home_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:textColor="@android:color/black"
-            android:gravity="center"
-            android:text="发布"  />
-    </LinearLayout>
+    <ImageButton
+        android:id="@+id/carpool_add_new_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/carpool_tool_bar"
+        app:layout_constraintEnd_toEndOf="@+id/carpool_tool_bar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/carpool_tool_bar"
+        app:layout_constraintTop_toTopOf="@+id/carpool_tool_bar"
+        app:srcCompat="@drawable/add_post" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical">
+    <ImageButton
+        android:id="@+id/home_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/story_button"
+        app:layout_constraintHorizontal_bias="0.446"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carpool_tool_bar"
+        app:layout_constraintVertical_bias="0.948"
+        app:srcCompat="@drawable/home" />
 
-        <ImageButton
-            android:id="@+id/story_button"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@android:color/transparent"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/story" />
+    <TextView
+        android:id="@+id/home_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发布"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/story_textView"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_button"
+        app:layout_constraintVertical_bias="0.529" />
 
-        <TextView
-            android:id="@+id/story_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:textColor="@android:color/black"
-            android:gravity="center"
-            android:text="同城小事" />
-    </LinearLayout>
+    <ImageButton
+        android:id="@+id/story_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/message_button"
+        app:layout_constraintHorizontal_bias="0.697"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carpool_tool_bar"
+        app:layout_constraintVertical_bias="0.95"
+        app:srcCompat="@drawable/story" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical">
+    <TextView
+        android:id="@+id/story_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="同城小事"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/message_textView"
+        app:layout_constraintHorizontal_bias="0.727"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/story_button"
+        app:layout_constraintVertical_bias="0.437" />
 
-        <ImageButton
-            android:id="@+id/message_button"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@android:color/transparent"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/message" />
+    <ImageButton
+        android:id="@+id/message_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/me_button"
+        app:layout_constraintHorizontal_bias="0.796"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carpool_tool_bar"
+        app:layout_constraintVertical_bias="0.948"
+        app:srcCompat="@drawable/message" />
 
-        <TextView
-            android:id="@+id/message_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:textColor="@android:color/black"
-            android:gravity="center"
-            android:text="消息" /> />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/message_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="消息"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/me_textView"
+        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/message_button"
+        app:layout_constraintVertical_bias="0.47" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical">
+    <ImageButton
+        android:id="@+id/me_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.905"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carpool_tool_bar"
+        app:layout_constraintVertical_bias="0.948"
+        app:srcCompat="@drawable/me" />
 
-        <ImageButton
-            android:id="@+id/me_button"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@android:color/transparent"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/me" />
-
-        <TextView
-            android:id="@+id/me_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:textColor="@android:color/black"
-            android:gravity="center"
-            android:text="我"/>
-    </LinearLayout>
-
-</LinearLayout>
+    <TextView
+        android:id="@+id/me_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="我"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.887"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/me_button"
+        app:layout_constraintVertical_bias="0.468" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
 

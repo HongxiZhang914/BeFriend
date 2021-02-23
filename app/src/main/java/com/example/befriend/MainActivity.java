@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
     private ImageButton me;
+    private ImageButton posting;   //同城小事
     private DatabaseReference userReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         userReference = FirebaseDatabase.getInstance().getReference().child("Users");
 
         me = (ImageButton) findViewById(R.id.me_button);
+        posting = (ImageButton) findViewById(R.id.home_button);
 
         me.setOnClickListener(new View.OnClickListener() {
             @Override

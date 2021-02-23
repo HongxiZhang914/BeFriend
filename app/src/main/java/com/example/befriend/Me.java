@@ -7,14 +7,26 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
+
+import org.w3c.dom.Text;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Me extends AppCompatActivity {
 
@@ -24,12 +36,18 @@ public class Me extends AppCompatActivity {
     private Toolbar toolbar;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private FirebaseAuth auth;
+    private CircleImageView profileImg;
+    private TextView userName;
+    private DatabaseReference ref;
+    String CurrentUserID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_me);
 
         auth = FirebaseAuth.getInstance();
+        CurrentUserID = auth.getCurrentUser().getUid();
+        ref = FirebaseDatabase.getInstance().getReference().child("Users");
 
         toolbar = (Toolbar) findViewById(R.id.me_tool_bar);
         setSupportActionBar(toolbar);
@@ -40,8 +58,28 @@ public class Me extends AppCompatActivity {
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
-        recyclerView = (RecyclerView) findViewById(R.id.setting_list);
+
         navigationView = (NavigationView) findViewById(R.id.setting_navigationView);
+        profileImg = (CircleImageView) findViewById(R.id.me_profile_image);
+        userName = (TextView) findViewById(R.id.me_userName);
+        ref.child(CurrentUserID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    //get value of username and image url from firebase
+                    String name = dataSnapshot.child("userName").getValue().toString();
+                    String imageUrl = dataSnapshot.child("profileImage").getValue().toString();
+                    //display username and profile image
+                    userName.setText(name);
+                    Picasso.get().load(imageUrl).placeholder(R.drawable.profile).into(profileImg);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
